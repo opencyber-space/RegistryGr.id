@@ -2,6 +2,9 @@
 
 [![Part of Ecosystem: OpenOS](https://img.shields.io/badge/⚡️Part%20of%20Ecosystem-OpenOS-0A84FF?style=for-the-badge)](https://github.com/your-org)
 
+The **RegistryGr.id** is the **central repository** for all **AGIGrid** and **AIGrid** registries.
+It consolidates **registries** into one unified system, ensuring **discoverability, governance, and execution** across the Grid ecosystem.
+
 ## 📑 Registries Overview
 
 ### Registries powering AGIGr.id
