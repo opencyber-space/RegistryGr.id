@@ -1,0 +1,6 @@
+Flask
+pymongo
+requests
+kubernetes
+graphene
+flask_graphql

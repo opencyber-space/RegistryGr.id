@@ -1,0 +1,390 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: assets-registry-db-registry
+  namespace: registries
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: assets-registry-db-registry
+  template:
+    metadata:
+      labels:
+        app: assets-registry-db-registry
+    spec:
+      containers:
+        - name: assets-registry-db-registry
+          image: aiosv1/assets-registry-db-registry:v1
+          ports:
+            - containerPort: 4000
+          env:
+            - name: MONGO_URL
+              value: "mongodb://registry-0.registries.svc.cluster.local:27017"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: assets-registry-db-registry-svc
+  namespace: registries
+spec:
+  selector:
+    app: assets-registry-db-registry
+  ports:
+    - protocol: TCP
+      port: 4000
+      targetPort: 4000
+      nodePort: 30210
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: contracts-registry-db-registry
+  namespace: registries
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: contracts-registry-db-registry
+  template:
+    metadata:
+      labels:
+        app: contracts-registry-db-registry
+    spec:
+      containers:
+        - name: contracts-registry-db-registry
+          image: aiosv1/contracts-registry-db-registry:v1
+          ports:
+            - containerPort: 4000
+          env:
+            - name: MONGO_URL
+              value: "mongodb://registry-0.registries.svc.cluster.local:27017"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: contracts-registry-db-registry-svc
+  namespace: registries
+spec:
+  selector:
+    app: contracts-registry-db-registry
+  ports:
+    - protocol: TCP
+      port: 4000
+      targetPort: 4000
+      nodePort: 30211
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dsl-registry-db-registry
+  namespace: registries
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dsl-registry-db-registry
+  template:
+    metadata:
+      labels:
+        app: dsl-registry-db-registry
+    spec:
+      containers:
+        - name: dsl-registry-db-registry
+          image: aiosv1/dsl-registry-db-registry:v1
+          ports:
+            - containerPort: 4000
+          env:
+            - name: MONGO_URL
+              value: "mongodb://registry-0.registries.svc.cluster.local:27017"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dsl-registry-db-registry-svc
+  namespace: registries
+spec:
+  selector:
+    app: dsl-registry-db-registry
+  ports:
+    - protocol: TCP
+      port: 4000
+      targetPort: 4000
+      nodePort: 30212
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: exchanges-registry-db-registry
+  namespace: registries
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: exchanges-registry-db-registry
+  template:
+    metadata:
+      labels:
+        app: exchanges-registry-db-registry
+    spec:
+      containers:
+        - name: exchanges-registry-db-registry
+          image: aiosv1/exchanges-registry-db-registry:v1
+          ports:
+            - containerPort: 4000
+          env:
+            - name: MONGO_URL
+              value: "mongodb://registry-0.registries.svc.cluster.local:27017"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: exchanges-registry-db-registry-svc
+  namespace: registries
+spec:
+  selector:
+    app: exchanges-registry-db-registry
+  ports:
+    - protocol: TCP
+      port: 4000
+      targetPort: 4000
+      nodePort: 30213
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: functions-registry-db-registry
+  namespace: registries
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: functions-registry-db-registry
+  template:
+    metadata:
+      labels:
+        app: functions-registry-db-registry
+    spec:
+      containers:
+        - name: functions-registry-db-registry
+          image: aiosv1/functions-registry-db-registry:v1
+          ports:
+            - containerPort: 4000
+          env:
+            - name: MONGO_URL
+              value: "mongodb://registry-0.registries.svc.cluster.local:27017"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: functions-registry-db-registry-svc
+  namespace: registries
+spec:
+  selector:
+    app: functions-registry-db-registry
+  ports:
+    - protocol: TCP
+      port: 4000
+      targetPort: 4000
+      nodePort: 30214
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orgs-registry-db-registry
+  namespace: registries
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: orgs-registry-db-registry
+  template:
+    metadata:
+      labels:
+        app: orgs-registry-db-registry
+    spec:
+      containers:
+        - name: orgs-registry-db-registry
+          image: aiosv1/orgs-registry-db-registry:v1
+          ports:
+            - containerPort: 4000
+          env:
+            - name: MONGO_URL
+              value: "mongodb://registry-0.registries.svc.cluster.local:27017"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: orgs-registry-db-registry-svc
+  namespace: registries
+spec:
+  selector:
+    app: orgs-registry-db-registry
+  ports:
+    - protocol: TCP
+      port: 4000
+      targetPort: 4000
+      nodePort: 30215
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: org-tasks-registry-db-registry
+  namespace: registries
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: org-tasks-registry-db-registry
+  template:
+    metadata:
+      labels:
+        app: org-tasks-registry-db-registry
+    spec:
+      containers:
+        - name: org-tasks-registry-db-registry
+          image: aiosv1/org-tasks-registry-db-registry:v1
+          ports:
+            - containerPort: 4000
+          env:
+            - name: MONGO_URL
+              value: "mongodb://registry-0.registries.svc.cluster.local:27017"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: org-tasks-registry-db-registry-svc
+  namespace: registries
+spec:
+  selector:
+    app: org-tasks-registry-db-registry
+  ports:
+    - protocol: TCP
+      port: 4000
+      targetPort: 4000
+      nodePort: 30216
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: subjects-registry-db-registry
+  namespace: registries
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: subjects-registry-db-registry
+  template:
+    metadata:
+      labels:
+        app: subjects-registry-db-registry
+    spec:
+      containers:
+        - name: subjects-registry-db-registry
+          image: aiosv1/subjects-registry-db-registry:v1
+          ports:
+            - containerPort: 4000
+          env:
+            - name: MONGO_URL
+              value: "mongodb://registry-0.registries.svc.cluster.local:27017"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: subjects-registry-db-registry-svc
+  namespace: registries
+spec:
+  selector:
+    app: subjects-registry-db-registry
+  ports:
+    - protocol: TCP
+      port: 4000
+      targetPort: 4000
+      nodePort: 30217
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tools-registry-db-registry
+  namespace: registries
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tools-registry-db-registry
+  template:
+    metadata:
+      labels:
+        app: tools-registry-db-registry
+    spec:
+      containers:
+        - name: tools-registry-db-registry
+          image: aiosv1/tools-registry-db-registry:v1
+          ports:
+            - containerPort: 4000
+          env:
+            - name: MONGO_URL
+              value: "mongodb://registry-0.registries.svc.cluster.local:27017"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tools-registry-db-registry-svc
+  namespace: registries
+spec:
+  selector:
+    app: tools-registry-db-registry
+  ports:
+    - protocol: TCP
+      port: 4000
+      targetPort: 4000
+      nodePort: 30218
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: registry-of-registries-db-registry
+  namespace: registries
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: registry-of-registries-db-registry
+  template:
+    metadata:
+      labels:
+        app: registry-of-registries-db-registry
+    spec:
+      containers:
+        - name: registry-of-registries-db-registry
+          image: aiosv1/registry-of-registries-db-registry:v1
+          ports:
+            - containerPort: 4000
+          env:
+            - name: MONGO_URL
+              value: "mongodb://registry-0.registries.svc.cluster.local:27017"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: registry-of-registries-db-registry-svc
+  namespace: registries
+spec:
+  selector:
+    app: registry-of-registries-db-registry
+  ports:
+    - protocol: TCP
+      port: 4000
+      targetPort: 4000
+      nodePort: 30219
+  type: NodePort
+---
