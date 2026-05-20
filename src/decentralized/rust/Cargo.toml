@@ -1,0 +1,11 @@
+[workspace]
+members = [
+    "sdk",
+    "nostr",
+    "origin",
+    "aggregator",
+    "query",
+    "watchdog",
+    "scheduler",
+    "dragonfly",
+]
